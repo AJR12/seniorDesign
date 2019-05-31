@@ -14,12 +14,14 @@ desDir9 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../lib'))
 sys.path.extend([desDir1,desDir2,desDir3,desDir4,desDir5,desDir6,desDir7,desDir8,desDir9])
 
 from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5 import QtGui
 
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
 
         self.title = "iMay - AI in Your Hands"
+        self.iconPath = "home.jpg"
         self.top = 100
         self.left = 100
         self.width = 400
@@ -28,6 +30,7 @@ class Window(QMainWindow):
         self.InitWindow()
 
     def InitWindow(self):
+        self.setWindowIcon(QtGui.QIcon(self.iconPath))
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
@@ -36,3 +39,4 @@ class Window(QMainWindow):
 App = QApplication(sys.argv)
 window = Window()
 sys.exit(App.exec())
+
