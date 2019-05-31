@@ -1,1 +1,0 @@
-Need to install pyqt5 and pyqt5-tools (FOR python 3)

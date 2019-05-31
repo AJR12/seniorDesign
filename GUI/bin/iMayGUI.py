@@ -1,0 +1,164 @@
+import sys
+import os
+
+curDir = os.getcwd()
+desDir1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+desDir8 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+desDir2 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../venv'))
+desDir3 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../venv/Scripts/python36.zip'))
+desDir4 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../venv/lib'))
+desDir5 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../venv/lib/site-packages'))
+desDir6 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../venv/lib/site-packages/setuptools-40.8.0-py3.6.egg'))
+desDir7 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../venv/lib/site-packages/pip-19.0.3-py3.6.egg'))
+
+sys.path.extend([desDir1,desDir2,desDir3,desDir4,desDir5,desDir6,desDir7,desDir8])
+
+
+path = sys.path
+
+print('curDir:', curDir)
+print('desDir1:', desDir1)
+print('desDir2:', desDir2)
+print('desDir3:', desDir3)
+print('desDir4:', desDir4)
+print('desDir5:', desDir5)
+print('desDir6:', desDir6)
+print('desDir7:', desDir7)
+print('desDir8:', desDir8)
+
+
+print('\n')
+
+print(len(path))
+
+print('\n')
+
+for i in path:
+    print(path.index(i), i)
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(768, 589)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
+        self.centralwidget.setObjectName("centralwidget")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout_2.setSizeConstraint(QtWidgets.QLayout.SetMaximumSize)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.listWidget_1 = QtWidgets.QListWidget(self.centralwidget)
+        self.listWidget_1.setObjectName("listWidget_1")
+        self.gridLayout_2.addWidget(self.listWidget_1, 1, 0, 1, 3)
+        self.listWidget_2 = QtWidgets.QListWidget(self.centralwidget)
+        self.listWidget_2.setObjectName("listWidget_2")
+        self.gridLayout_2.addWidget(self.listWidget_2, 2, 0, 1, 3)
+        self.comboBox = QtWidgets.QComboBox(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.comboBox.sizePolicy().hasHeightForWidth())
+        self.comboBox.setSizePolicy(sizePolicy)
+        self.comboBox.setObjectName("comboBox")
+        self.gridLayout_2.addWidget(self.comboBox, 0, 3, 1, 1)
+        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit.setObjectName("lineEdit")
+        self.gridLayout_2.addWidget(self.lineEdit, 0, 2, 1, 1)
+        self.addDirectory = QtWidgets.QToolButton(self.centralwidget)
+        self.addDirectory.setObjectName("addDirectory")
+        self.gridLayout_2.addWidget(self.addDirectory, 0, 0, 1, 1)
+        self.formLayout = QtWidgets.QFormLayout()
+        self.formLayout.setFormAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.formLayout.setSpacing(0)
+        self.formLayout.setObjectName("formLayout")
+        self.Debug_1 = QtWidgets.QPushButton(self.centralwidget)
+        self.Debug_1.setObjectName("Debug_1")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.Debug_1)
+        self.Debug_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.Debug_2.setObjectName("Debug_2")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.Debug_2)
+        self.Debug_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.Debug_3.setObjectName("Debug_3")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.Debug_3)
+        self.Debug_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.Debug_4.setObjectName("Debug_4")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.Debug_4)
+        self.Debug_5 = QtWidgets.QPushButton(self.centralwidget)
+        self.Debug_5.setObjectName("Debug_5")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.Debug_5)
+        self.Debug_6 = QtWidgets.QPushButton(self.centralwidget)
+        self.Debug_6.setObjectName("Debug_6")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.Debug_6)
+        self.NextButton = QtWidgets.QPushButton(self.centralwidget)
+        self.NextButton.setObjectName("NextButton")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.NextButton)
+        self.CancelButton = QtWidgets.QPushButton(self.centralwidget)
+        self.CancelButton.setObjectName("CancelButton")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.CancelButton)
+        self.gridLayout_2.addLayout(self.formLayout, 2, 3, 1, 1)
+        self.toolButton = QtWidgets.QToolButton(self.centralwidget)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("../IMayGui/Directory.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.toolButton.setIcon(icon)
+        self.toolButton.setObjectName("toolButton")
+        self.gridLayout_2.addWidget(self.toolButton, 0, 1, 1, 1)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 768, 26))
+        self.menubar.setObjectName("menubar")
+        self.menuIMay_prototype = QtWidgets.QMenu(self.menubar)
+        self.menuIMay_prototype.setObjectName("menuIMay_prototype")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.menubar.addAction(self.menuIMay_prototype.menuAction())
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.Debug_1.clicked.connect(lambda: IMayFunctions.rename())
+        self.Debug_2.clicked.connect(lambda: IMayFunctions.zip_files())
+        self.toolButton.clicked.connect(lambda: self.directory_dialog())
+        self.addDirectory.clicked.connect(lambda: self.add_directory())
+        self.Debug_3.pressed.connect(lambda: self.directory_dialog())
+
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.addDirectory.setText(_translate("MainWindow", "+"))
+        self.Debug_1.setText(_translate("MainWindow", "Debug_1"))
+        self.Debug_2.setText(_translate("MainWindow", "Debug_2"))
+        self.Debug_3.setText(_translate("MainWindow", "Debug_3"))
+        self.Debug_4.setText(_translate("MainWindow", "Debug_4"))
+        self.Debug_5.setText(_translate("MainWindow", "Debug_5"))
+        self.Debug_6.setText(_translate("MainWindow", "Debug_6"))
+        self.NextButton.setText(_translate("MainWindow", "Next"))
+        self.CancelButton.setText(_translate("MainWindow", "Cancel"))
+        self.toolButton.setText(_translate("MainWindow", "..."))
+        self.menuIMay_prototype.setTitle(_translate("MainWindow", "IMay prototype"))
+
+    def directory_dialog(self):
+        path_to_directory = QtWidgets.QFileDialog.getExistingDirectory(None, "Choose Directory", "F:\Senior_2")
+        self.lineEdit.setText(path_to_directory)
+
+    def add_directory(self):
+        path_to_directory = self.lineEdit.text()
+        self.listWidget_1.addItem(path_to_directory)
+
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
