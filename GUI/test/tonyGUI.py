@@ -24,7 +24,7 @@ class Window(QMainWindow):
         super().__init__()
 
         title = "iMay - AI in Your Hands"
-        self.iconPath = "home.jpg"
+        self.iconPath = "pic/home.jpg"
         top = 100
         left = 100
         width = 400

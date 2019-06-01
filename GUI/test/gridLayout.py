@@ -13,9 +13,8 @@ desDir9 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../lib'))
 
 sys.path.extend([desDir1,desDir2,desDir3,desDir4,desDir5,desDir6,desDir7,desDir8,desDir9])
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QDialog, QGroupBox, QHBoxLayout, QVBoxLayout
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QDialog, QGroupBox, QHBoxLayout, QVBoxLayout, QGridLayout
 from PyQt5 import QtGui, QtCore
-
 
 class Window(QDialog):
 
@@ -25,10 +24,11 @@ class Window(QDialog):
 
 
         self.iconPath = "pic/home.jpg"
-        self.footballIconPath = "pic/football.png"
-        self.soccerIconPath = "pic/Soccer.png"
-        self.basketballIconPath = "pic/Basketball.png"
-        self.title = "iMay - AI in Your Hands"
+        self.pythonIconPath = "pic/python.png"
+        self.javaIconPath = "pic/java.png"
+        self.cppIconPath = "pic/cpp.png"
+        self.csharpIconPath = "pic/c#.png"
+        self.title = "PyQt5 Grid Layout"
         self.top = 100
         self.left = 100
         self.width = 400
@@ -36,8 +36,8 @@ class Window(QDialog):
 
         self.InitWindow()
 
-        self.createLayout()
-        vbox = QVBoxLayout()
+        self.CreateLayout()
+        vbox = QVBoxLayout();
         vbox.addWidget(self.groupBox)
         self.setLayout(vbox)
 
@@ -49,34 +49,39 @@ class Window(QDialog):
 
         self.show()
 
-
-    def createLayout(self):
-        self.groupBox = QGroupBox("What Is Your Favorite Sport?")
-        hboxlayout = QHBoxLayout()
+    def CreateLayout(self):
+        self.groupBox = QGroupBox("What is your favorite programming language?")
+        gridLayout = QGridLayout()
 
         # Creating a pushbutton, defining geometry, setting icon and icon geo, creating tooltip
-        button = QPushButton("Football", self)
-        button.setIcon(QtGui.QIcon(self.footballIconPath))
+        button = QPushButton("Python", self)
+        button.setIcon(QtGui.QIcon(self.pythonIconPath))
         button.setIconSize(QtCore.QSize(40, 40))
         button.setMinimumHeight(40)
-        hboxlayout.addWidget((button))
+        gridLayout.addWidget(button, 0, 0)
 
         # Creating a pushbutton, defining geometry, setting icon and icon geo, creating tooltip
-        button1 = QPushButton("Soccer", self)
-        button1.setIcon(QtGui.QIcon(self.soccerIconPath))
+        button1 = QPushButton("Java", self)
+        button1.setIcon(QtGui.QIcon(self.javaIconPath))
         button1.setIconSize(QtCore.QSize(40, 40))
         button1.setMinimumHeight(40)
-        hboxlayout.addWidget((button1))
+        gridLayout.addWidget(button1, 0, 1)
 
         # Creating a pushbutton, defining geometry, setting icon and icon geo, creating tooltip
-        button2 = QPushButton("Basketball", self)
-        button2.setIcon(QtGui.QIcon(self.basketballIconPath))
+        button2 = QPushButton("C++", self)
+        button2.setIcon(QtGui.QIcon(self.cppIconPath))
         button2.setIconSize(QtCore.QSize(40, 40))
         button2.setMinimumHeight(40)
-        hboxlayout.addWidget((button2))
+        gridLayout.addWidget(button2, 1, 0)
 
-        self.groupBox.setLayout(hboxlayout)
+        # Creating a pushbutton, defining geometry, setting icon and icon geo, creating tooltip
+        button3 = QPushButton("C#", self)
+        button3.setIcon(QtGui.QIcon(self.csharpIconPath))
+        button3.setIconSize(QtCore.QSize(40, 40))
+        button3.setMinimumHeight(40)
+        gridLayout.addWidget(button3, 1, 1)
 
+        self.groupBox.setLayout(gridLayout)
 
 if __name__ == "__main__":
     App = QApplication(sys.argv)
