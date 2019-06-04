@@ -13,7 +13,7 @@ desDir9 = os.path.abspath(os.path.join(os.path.dirname(__file__), '../lib'))
 
 sys.path.extend([desDir1,desDir2,desDir3,desDir4,desDir5,desDir6,desDir7,desDir8,desDir9])
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QDialog, QGroupBox, QHBoxLayout, QVBoxLayout, QGridLayout, QLabel
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QDialog, QGroupBox, QHBoxLayout, QVBoxLayout, QGridLayout, QLabel, QRadioButton
 from PyQt5 import QtGui, QtCore
 
 class Window(QDialog):
@@ -22,10 +22,7 @@ class Window(QDialog):
 
 
         self.iconPath = "pic/home.jpg"
-        self.pythonIconPath = "pic/python.png"
-        self.javaIconPath = "pic/java.png"
-        self.cppIconPath = "pic/cpp.png"
-        self.csharpIconPath = "pic/c#.png"
+        self.footballIconPath = "pic/football.png"
         self.title = "PyQt5 Grid Layout"
         self.top = 100
         self.left = 100
@@ -33,22 +30,15 @@ class Window(QDialog):
         self.height = 300
 
         self.InitWindow()
+        self.radioButton()
 
         vbox = QVBoxLayout()
-        label = QLabel("This is PyQt5 Label")
-        vbox.addWidget(label)
+        vbox.addWidget(self.groupBox)
 
-        label2 = QLabel("This is Label 2")
-        label2.setFont(QtGui.QFont("Sanserif", 20))
-        label2.setStyleSheet("color:red")
-        vbox.addWidget(label2)
-
-        labelImage = QLabel(self)
-        pixmap = QtGui.QPixmap(self.javaIconPath)
-        labelImage.setPixmap(pixmap)
-        vbox.addWidget(labelImage)
 
         self.setLayout(vbox)
+
+        self.show()
 
 
     def InitWindow(self):
@@ -56,9 +46,24 @@ class Window(QDialog):
         self.setWindowIcon(QtGui.QIcon(self.iconPath))
         self.setGeometry(self.left, self.top, self.width, self.height)
 
-        self.show()
 
 
+
+    def radioButton(self):
+        self.groupBox = QGroupBox("Football")
+        self.groupBox.setFont(QtGui.QFont("Sanserif", 13))
+
+        hboxLayout = QHBoxLayout()
+
+        self.radiobtn1 = QRadioButton("Football")
+        self.radiobtn1.setChecked(True)
+        self.radiobtn1.setIcon(QtGui.QIcon(self.footballIconPath))
+        self.radiobtn1.setIconSize(QtCore.QSize(40,40))
+        self.radiobtn1.setFont(QtGui.QFont("Sanserif", 13))
+        hboxLayout.addWidget(self.radiobtn1)
+
+
+        self.setLayout(hboxLayout)
 
 
 if __name__ == "__main__":
