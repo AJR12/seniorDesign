@@ -17,3 +17,4 @@ from lib.serverClass import serverClass
 proj = serverClass()
 
 
+print("hello")
