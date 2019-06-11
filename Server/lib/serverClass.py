@@ -31,10 +31,10 @@ class serverClass:
             self.greeting()
         else:
             # handle whitespace issue is proj has a space
-            if ("\\" in zip):
-                zip = zip.replace('\\', '')
-            if ("\\" in name):
-                name = name.replace('\\', '')
+            # if ("\\" in zip):
+            #     zip = zip.replace('\\', '')
+            # if ("\\" in name):
+            #     name = name.replace('\\', '')
 
             self.__zipFilePath = zip.strip()
             self.__project_name = name
@@ -101,12 +101,15 @@ class serverClass:
 
     # Extract project zip file
     def unzipProj(self, zipFilePath, desPath, projName):
+
+        print("ZIP =", zipFilePath)
+
         with ZipFile(zipFilePath, 'r') as zipObj:
             listOfFileNames = zipObj.namelist()
             for fileName in listOfFileNames:
-                print("File %s:" % listOfFileNames.index(fileName), fileName)
+                # print("File %s:" % listOfFileNames.index(fileName), fileName)
 
                 if not fileName.startswith("__") and not fileName.endswith(projName + "/") \
                         and listOfFileNames.index(fileName) != 0 and listOfFileNames.index(fileName) != 1:
-                    print('^^^')
+                    # print('^^^')
                     zipObj.extract(fileName, desPath)
