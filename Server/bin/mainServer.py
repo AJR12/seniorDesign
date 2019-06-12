@@ -15,5 +15,8 @@ sys.path.extend([desDir1,desDir2,desDir3,desDir4,desDir5,desDir6,desDir7,desDir8
 from lib.serverClass import serverClass
 
 proj = serverClass()
+print('labels =', proj.labels)
+print('numLabels =', proj.numLabels)
+
 
 #  C:\Users\deep\Downloads\testproject.zip
