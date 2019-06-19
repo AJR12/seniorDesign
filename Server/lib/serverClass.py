@@ -130,11 +130,11 @@ class serverClass:
         with ZipFile(zipFilePath, 'r') as zipObj:
             listOfFileNames = zipObj.namelist()
             for fileName in listOfFileNames:
-                # print("File %s:" % listOfFileNames.index(fileName), fileName)
+                # Counts the number of labels in the project
                 self.labelCounter(fileName)
                 if not fileName.startswith('__'):
-                    # print('^^^')
                     zipObj.extract(fileName, desPath)
+        # Renames the training data folder to "<projName>_trainingData"
         self.renameTrainingDataDir(desPath, projName)
 
     # Counts number of labels
@@ -149,10 +149,10 @@ class serverClass:
             a, b, c = fileName.split('/')
             self.labels.append(b)
 
-    # Renames extracted .zip dir
+    # Renames the training data folder to "<projName>_trainingData"
     def renameTrainingDataDir(self, desPath, projName):
         """
-        Renames extracted .zip dir. Used in unzipProj() method
+        Renames the training data folder to "<projName>_trainingData". Used in unzipProj() method.
         :param desPath:
         :param projName:
         :return: self.__trainData_path
@@ -161,3 +161,13 @@ class serverClass:
         newName = desPath + "/" + projName + "_trainingData"
         os.rename(projPath, newName)
         self.__trainData_path = newName
+
+    def labelFileCounter(self, __trainingData_path):
+        numFiles = numLabels = 0
+        for _, labels, files in os.walk(__trainingData_path):
+            # ^ this idiom means "we won't be using this value"
+            #   print("_ =", _)
+            #   print("labels:", labels)
+            #   print("Files:", files)
+            numFiles += len(files)
+            numLabels += len(labels)
