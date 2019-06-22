@@ -11,7 +11,7 @@ class serverClass:
         self.labels = []
         self.greeting()
         self.mkdir(self.__project_name)
-        self.unzipProj(self.__zipFilePath, self.__project_path, self.__project_name)
+        self.unzipProj(self.__zipFilePath, self.__trainData_path)
         self.numLabels = len(self.labels)
 
 
@@ -56,9 +56,10 @@ class serverClass:
         :return: self.__project_path
         """
         path = os.path.expanduser("~/Desktop/") + project_name
+        trainingDataDir = path + '/' + project_name + '_trainingData'
 
         try:
-            os.mkdir(path)
+            os.makedirs(path)
         except OSError as error:
             print("\nCreation of the project %s failed" % path)
             print(error)
@@ -68,9 +69,8 @@ class serverClass:
         else:
             print("Successfully created the project %s " % path)
             self.__project_path = path
+            self.__trainData_path = trainingDataDir
 
-            #####Test
-        print("mkdir ok")
 
     # Handles creating a project that already exists
     def fileExistHandled(self, error, path):
@@ -121,7 +121,7 @@ class serverClass:
         return path
 
     # Extract project zip file
-    def unzipProj(self, zipFilePath, desPath, projName):
+    def unzipProj(self, zipFilePath, desPath):
         """
         Here we unzip the project .zip file in the new proj dir. the extracted folder contains
         subdirs with label names.
@@ -139,7 +139,7 @@ class serverClass:
                 if not fileName.startswith('__'):
                     zipObj.extract(fileName, desPath)
         # Renames the training data folder to "<projName>_trainingData"
-        self.renameTrainingDataDir(desPath, projName)
+        # self.renameTrainingDataDir(desPath, projName)
 
     # Counts number of labels
     def labelCounter(self, fileName):
@@ -148,10 +148,9 @@ class serverClass:
         :param fileName:
         :return: self.labels.
         """
-        count = fileName.count('/')
-        if count == 2 and fileName.endswith('/'):
-            a, b, c = fileName.split('/')
-            self.labels.append(b)
+        a, b = fileName.split('/')
+        if not b:
+            self.labels.append(a)
 
     # Renames the training data folder to "<projName>_trainingData"
     def renameTrainingDataDir(self, desPath, projName):
