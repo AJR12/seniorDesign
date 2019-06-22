@@ -12,6 +12,7 @@ def create_directory(dirName):
 
 
 def copy_directory(paths, labels,dest):
+    print("test")
     for i in range(len(paths)):
         shutil.copytree(paths[i], dest + '/' + labels[i])
 
@@ -23,9 +24,6 @@ def zip_files(output_file, dir_path):
     #for i in range(len(inputs)):
         #shutil.make_archive(inputs[i], 'zip', outputs[i])
 
-
-def remove_directory(dir_path):
-    shutil.rmtree(dir_path)
 
 def rename(dir_path, name):
     path = dir_path
