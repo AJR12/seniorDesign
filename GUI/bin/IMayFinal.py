@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import IMayFunctions
+from GUI.lib import IMayFunctions
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -47,7 +47,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.addDirectory, 0, 0, 1, 1)
         self.toolButton = QtWidgets.QToolButton(self.centralwidget)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../IMayGui/Directory.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("Directory.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.toolButton.setIcon(icon)
         self.toolButton.setObjectName("toolButton")
         self.gridLayout_2.addWidget(self.toolButton, 0, 1, 1, 1)
@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addLayout(self.formLayout, 2, 3, 1, 1)
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("../IMayGui/IMayLogo3.png"))
+        self.label.setPixmap(QtGui.QPixmap("IMayLogo3.png"))
         self.label.setScaledContents(False)
         self.label.setObjectName("label")
         self.gridLayout_2.addWidget(self.label, 1, 3, 1, 1)
